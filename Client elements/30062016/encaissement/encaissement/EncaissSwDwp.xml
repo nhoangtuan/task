@@ -1,0 +1,715 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://flux.encaissement.inpi.fr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://flux.encaissement.inpi.fr" name="EncaissSW" targetNamespace="http://flux.encaissement.inpi.fr/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://flux.encaissement.inpi.fr/" xmlns:ns1="http://flux.encaissement.inpi.fr" elementFormDefault="unqualified" targetNamespace="http://flux.encaissement.inpi.fr/" version="1.0">
+<xs:import namespace="http://flux.encaissement.inpi.fr"/>
+<xs:element name="ReponseOKSW" type="tns:reponseMsg"/>
+<xs:element name="consultationCCL" type="tns:consultationCCL"/>
+<xs:element name="consultationCCLResponse" type="tns:consultationCCLResponse"/>
+<xs:element name="consulterDisponibiliteService" type="tns:consulterDisponibiliteService"/>
+<xs:element name="consulterDisponibiliteServiceResponse" type="tns:consulterDisponibiliteServiceResponse"/>
+<xs:element name="consulterJournalDeCaisse" type="tns:consulterJournalDeCaisse"/>
+<xs:element name="consulterJournalDeCaisseResponse" type="tns:consulterJournalDeCaisseResponse"/>
+<xs:element name="consulterListeDatesNonComptable" type="tns:consulterListeDatesNonComptable"/>
+<xs:element name="consulterListeDatesNonComptableResponse" type="tns:consulterListeDatesNonComptableResponse"/>
+<xs:element name="consulterReferentielCivilite" type="tns:consulterReferentielCivilite"/>
+<xs:element name="consulterReferentielCiviliteResponse" type="tns:consulterReferentielCiviliteResponse"/>
+<xs:element name="consulterReferentielFormeJuridique" type="tns:consulterReferentielFormeJuridique"/>
+<xs:element name="consulterReferentielFormeJuridiqueResponse" type="tns:consulterReferentielFormeJuridiqueResponse"/>
+<xs:element name="consulterReferentielPays" type="tns:consulterReferentielPays"/>
+<xs:element name="consulterReferentielPaysResponse" type="tns:consulterReferentielPaysResponse"/>
+<xs:element name="consulterReferentielProduit" type="tns:consulterReferentielProduit"/>
+<xs:element name="consulterReferentielProduitResponse" type="tns:consulterReferentielProduitResponse"/>
+<xs:element name="creerCommande" type="tns:creerCommande"/>
+<xs:element name="creerCommandeResponse" type="tns:creerCommandeResponse"/>
+<xs:element name="misAjourNumeroDossierCommande" type="tns:misAjourNumeroDossierCommande"/>
+<xs:element name="misAjourNumeroDossierCommandeResponse" type="tns:misAjourNumeroDossierCommandeResponse"/>
+<xs:complexType name="consulterDisponibiliteService">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="EnteteMessage">
+<xs:sequence>
+<xs:element name="loginAppClient" type="xs:string"/>
+<xs:element name="passwdAppClient" type="xs:string"/>
+<xs:element name="appOrigin" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterDisponibiliteServiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="disponibiliteService" type="tns:reponseMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="reponseMsg">
+<xs:sequence>
+<xs:element name="CodeReponse" type="xs:string"/>
+<xs:element name="DateHeureReponse" type="xs:dateTime"/>
+<xs:element name="DetailReponse" type="xs:string"/>
+<xs:element name="VersionSW" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="faultBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="VersionSW" type="xs:string"/>
+<xs:element minOccurs="0" name="businessMessage" type="xs:string"/>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielPays">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielPaysResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="referentielPays" type="tns:listePaysMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listePaysMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="pays" type="tns:paysMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="paysMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+<xs:element minOccurs="0" name="libelle" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielFormeJuridique">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielFormeJuridiqueResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="referentielFormeJuridique" type="tns:listeFormeJuridiqueMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listeFormeJuridiqueMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="FormeJuridique" type="tns:formeJuridiqueMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="formeJuridiqueMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+<xs:element minOccurs="0" name="libelle" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="misAjourNumeroDossierCommande">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+<xs:element minOccurs="0" name="numeroCommande" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroDossier" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="misAjourNumeroDossierCommandeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="emailEnvoye" type="tns:reponseMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielProduit">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+<xs:element minOccurs="0" name="codeDomaine" type="xs:string"/>
+<xs:element minOccurs="0" name="codeSousDomaine" type="xs:string"/>
+<xs:element minOccurs="0" name="dateSouhaitee" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielProduitResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="referentielCodeProduit" type="tns:listeProduitMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listeProduitMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Produit" type="tns:produitMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="produitMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="codeRecette" type="xs:string"/>
+<xs:element minOccurs="0" name="domaine" type="xs:string"/>
+<xs:element minOccurs="0" name="libelle" type="xs:string"/>
+<xs:element minOccurs="0" name="sousDomaine" type="xs:string"/>
+<xs:element minOccurs="0" name="tarifs" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultationCCL">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+<xs:element minOccurs="0" name="noCompte" type="xs:string"/>
+<xs:element minOccurs="0" name="motDePasseCCL" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultationCCLResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="compteClient" type="tns:compteCLMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="compteCLMsg">
+<xs:sequence>
+<xs:element name="noCompte" type="xs:long"/>
+<xs:element minOccurs="0" name="titulaire" type="tns:Personne"/>
+<xs:element minOccurs="0" name="soldeClient" type="xs:decimal"/>
+<xs:element minOccurs="0" name="adresseTitulaire" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="DestinataireCourrier" type="tns:DestinataireCourrierCCL"/>
+<xs:element minOccurs="0" name="adresseDestinataireCourrier" type="tns:Adresse"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Personne">
+<xs:sequence>
+<xs:element name="type" type="tns:typePersonneEnum"/>
+<xs:element name="titre" type="xs:string"/>
+<xs:element name="nom" type="xs:string"/>
+<xs:element name="prenom" type="xs:string"/>
+<xs:element name="formeJuridique" type="xs:string"/>
+<xs:element name="raisonSociale" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Adresse">
+<xs:sequence>
+<xs:element minOccurs="0" name="service" type="xs:string"/>
+<xs:element minOccurs="0" name="complement" type="xs:string"/>
+<xs:element name="nomVoie" type="xs:string"/>
+<xs:element minOccurs="0" name="mentionDistribution" type="xs:string"/>
+<xs:element name="codePostal" type="xs:string"/>
+<xs:element name="ville" type="xs:string"/>
+<xs:element name="codePays" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DestinataireCourrierCCL">
+<xs:sequence>
+<xs:element minOccurs="0" name="titreDestCourrierCCL" type="xs:string"/>
+<xs:element minOccurs="0" name="nomDestCourrierCCl" type="xs:string"/>
+<xs:element minOccurs="0" name="prenomDestCourrierCCL" type="xs:string"/>
+<xs:element minOccurs="0" name="raisonSocialeDestCourrierCCL" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="creerCommande">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+<xs:element minOccurs="0" name="Commande" type="tns:Commande"/>
+<xs:element name="commandeTermine" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Commande">
+<xs:sequence>
+<xs:element name="dateCmd" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="refCmd" type="xs:string"/>
+<xs:element minOccurs="0" name="refDossier" type="xs:string"/>
+<xs:element minOccurs="0" name="InformationsDossier" type="tns:InformationsDossier"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listeProduits" nillable="true" type="tns:LigneCommande"/>
+<xs:element name="paiement" type="tns:Paiement"/>
+<xs:element minOccurs="0" name="demandeur" type="tns:Personne"/>
+<xs:element minOccurs="0" name="mandataire" type="tns:Personne"/>
+<xs:element minOccurs="0" name="destinataire" type="tns:Personne"/>
+<xs:element minOccurs="0" name="adresseDemandeur" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="adresseMandataire" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="adresseDestinataire" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InformationsDossier">
+<xs:sequence>
+<xs:element minOccurs="0" name="GpB3_OppositionMarque" type="tns:GpB3_OppositionMarque"/>
+<xs:element minOccurs="0" name="GpC1_DessinModele" type="tns:GpC1_DessinModele"/>
+<xs:element minOccurs="0" name="GpD1_RegistreNational" type="tns:GpD1_RegistreNational"/>
+<xs:element minOccurs="0" name="GpF1_Annuite" type="tns:GpF1_Annuite"/>
+<xs:element minOccurs="0" name="GpIG_IndicationGeo" type="tns:GpIG_IndicationGeo"/>
+<xs:element minOccurs="0" name="GpA1_CertificatUtilite" type="tns:GpA1_CertificatUtilite"/>
+<xs:element minOccurs="0" name="GpA7_CertificatComplement" type="tns:GpA7_CertificatComplement"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpB3_OppositionMarque">
+<xs:sequence>
+<xs:element minOccurs="0" name="DesignationMarque" type="xs:string"/>
+<xs:element minOccurs="0" name="NumeroNationalEnregistrement" type="xs:string"/>
+<xs:element minOccurs="0" name="DesignationMarqueOpposee" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreMarqueOpposee" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpC1_DessinModele">
+<xs:sequence>
+<xs:element minOccurs="0" name="NomDeposant" type="xs:string"/>
+<xs:element minOccurs="0" name="NumeroNationalEnregistrement" type="xs:string"/>
+<xs:element minOccurs="0" name="dateDepot" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+<xs:element minOccurs="0" name="NumeroOrdre" type="xs:string"/>
+<xs:element minOccurs="0" name="LieuDeDepot" type="xs:string"/>
+<xs:element minOccurs="0" name="NumerosEnveloppe" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpD1_RegistreNational">
+<xs:sequence>
+<xs:element minOccurs="0" name="NumeroDemandeInscription" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreBrevet" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreCertificatsComplementaire" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreTopographie" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreMarque" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreDessins" type="xs:string"/>
+<xs:element minOccurs="0" name="NombreLogiciel" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpF1_Annuite">
+<xs:sequence>
+<xs:element minOccurs="0" name="NumeroListe" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpIG_IndicationGeo">
+<xs:sequence>
+<xs:element minOccurs="0" name="NomIndicationGeographique" type="xs:string"/>
+<xs:element minOccurs="0" name="NumeroNational" type="xs:string"/>
+<xs:element minOccurs="0" name="OrganismeDefenseGestion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpA1_CertificatUtilite">
+<xs:sequence>
+<xs:element minOccurs="0" name="ra1InBrevet" type="xs:string"/>
+<xs:element minOccurs="0" name="ra1InCertif" type="xs:string"/>
+<xs:element minOccurs="0" name="dateDepot" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="NumeroNational" type="xs:string"/>
+<xs:element minOccurs="0" name="NomDemandeur" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GpA7_CertificatComplement">
+<xs:sequence>
+<xs:element minOccurs="0" name="NumeroNational" type="xs:string"/>
+<xs:element minOccurs="0" name="dateDepot" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="NomDemandeur" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceClient" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LigneCommande">
+<xs:sequence>
+<xs:element name="codeRecette" type="xs:string"/>
+<xs:element name="quantite" type="xs:int"/>
+<xs:element name="tarif" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Paiement">
+<xs:sequence>
+<xs:element name="typePaiement" type="tns:paiementEnum"/>
+<xs:element name="fraisDePort" type="xs:decimal"/>
+<xs:element name="dateEffetPaiement" type="xs:dateTime"/>
+<xs:element name="montantPaiement" type="xs:decimal"/>
+<xs:element minOccurs="0" name="refTransactionBancaire" type="xs:string"/>
+<xs:element minOccurs="0" name="numCCL" type="xs:string"/>
+<xs:element minOccurs="0" name="motDePasseCCL" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="creerCommandeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="operationCreee" type="tns:sortieCommandeMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sortieCommandeMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="Operation" type="tns:operationMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="operationMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="numeroCommande" type="xs:long"/>
+<xs:element minOccurs="0" name="refTransactionBancaire" type="xs:string"/>
+<xs:element minOccurs="0" name="montantTotal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="dateCreation" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dateEncaissement" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielCivilite">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterReferentielCiviliteResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="referentielCivilite" type="tns:listeCiviliteMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listeCiviliteMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Civilite" type="tns:civiliteMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="civiliteMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+<xs:element minOccurs="0" name="libelle" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterListeDatesNonComptable">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterListeDatesNonComptableResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="referentielDatesNonComptable" type="tns:listeJoursFeriesMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listeJoursFeriesMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="JourFerie" type="tns:jourFerieMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="jourFerieMsg">
+<xs:sequence>
+<xs:element minOccurs="0" name="date" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="libelle" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterJournalDeCaisse">
+<xs:sequence>
+<xs:element minOccurs="0" name="EnteteMessage" type="tns:EnteteMessage"/>
+<xs:element minOccurs="0" name="dateComptableRelative" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="modeDePaiement" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consulterJournalDeCaisseResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listeOperation" type="tns:listeOperationMsg"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listeOperationMsg">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Operation" type="tns:operationMsg"/>
+<xs:element minOccurs="0" ref="tns:ReponseOKSW"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="typePersonneEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="M"/>
+<xs:enumeration value="P"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="paiementEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="CB"/>
+<xs:enumeration value="CCL"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://flux.encaissement.inpi.fr/" xmlns="http://flux.encaissement.inpi.fr" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://flux.encaissement.inpi.fr">
+<xs:import namespace="http://flux.encaissement.inpi.fr/"/>
+<xs:element name="compteCLMsg" type="ns1:compteCLMsg"/>
+<xs:element name="listeCiviliteMsg" type="ns1:listeCiviliteMsg"/>
+<xs:element name="listeFormeJuridiqueMsg" type="ns1:listeFormeJuridiqueMsg"/>
+<xs:element name="listeJoursFeriesMsg" type="ns1:listeJoursFeriesMsg"/>
+<xs:element name="listeOperationMsg" type="ns1:listeOperationMsg"/>
+<xs:element name="listePaysMsg" type="ns1:listePaysMsg"/>
+<xs:element name="listeProduitMsg" type="ns1:listeProduitMsg"/>
+<xs:element name="operationMsg" type="ns1:operationMsg"/>
+<xs:element name="sortieCommandeMsg" type="ns1:sortieCommandeMsg"/>
+<xs:element name="BusinessFault" nillable="true" type="ns1:faultBean"/>
+</xs:schema>
+
+  </wsdl:types>
+  <wsdl:message name="misAjourNumeroDossierCommandeResponse">
+    <wsdl:part element="tns:misAjourNumeroDossierCommandeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterJournalDeCaisseResponse">
+    <wsdl:part element="tns:consulterJournalDeCaisseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterDisponibiliteServiceResponse">
+    <wsdl:part element="tns:consulterDisponibiliteServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterListeDatesNonComptableResponse">
+    <wsdl:part element="tns:consulterListeDatesNonComptableResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultationCCLResponse">
+    <wsdl:part element="tns:consultationCCLResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="creerCommandeResponse">
+    <wsdl:part element="tns:creerCommandeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielProduit">
+    <wsdl:part element="tns:consulterReferentielProduit" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielFormeJuridiqueResponse">
+    <wsdl:part element="tns:consulterReferentielFormeJuridiqueResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielPays">
+    <wsdl:part element="tns:consulterReferentielPays" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterDisponibiliteService">
+    <wsdl:part element="tns:consulterDisponibiliteService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BusinessFaultException">
+    <wsdl:part element="ns1:BusinessFault" name="BusinessFaultException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielFormeJuridique">
+    <wsdl:part element="tns:consulterReferentielFormeJuridique" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielCiviliteResponse">
+    <wsdl:part element="tns:consulterReferentielCiviliteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielPaysResponse">
+    <wsdl:part element="tns:consulterReferentielPaysResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterJournalDeCaisse">
+    <wsdl:part element="tns:consulterJournalDeCaisse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielCivilite">
+    <wsdl:part element="tns:consulterReferentielCivilite" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultationCCL">
+    <wsdl:part element="tns:consultationCCL" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="creerCommande">
+    <wsdl:part element="tns:creerCommande" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="misAjourNumeroDossierCommande">
+    <wsdl:part element="tns:misAjourNumeroDossierCommande" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterReferentielProduitResponse">
+    <wsdl:part element="tns:consulterReferentielProduitResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consulterListeDatesNonComptable">
+    <wsdl:part element="tns:consulterListeDatesNonComptable" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EncaissSwDwp">
+    <wsdl:operation name="consulterDisponibiliteService">
+      <wsdl:input message="tns:consulterDisponibiliteService" name="consulterDisponibiliteService">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterDisponibiliteServiceResponse" name="consulterDisponibiliteServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielPays">
+      <wsdl:input message="tns:consulterReferentielPays" name="consulterReferentielPays">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterReferentielPaysResponse" name="consulterReferentielPaysResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielFormeJuridique">
+      <wsdl:input message="tns:consulterReferentielFormeJuridique" name="consulterReferentielFormeJuridique">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterReferentielFormeJuridiqueResponse" name="consulterReferentielFormeJuridiqueResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="misAjourNumeroDossierCommande">
+      <wsdl:input message="tns:misAjourNumeroDossierCommande" name="misAjourNumeroDossierCommande">
+    </wsdl:input>
+      <wsdl:output message="tns:misAjourNumeroDossierCommandeResponse" name="misAjourNumeroDossierCommandeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielProduit">
+      <wsdl:input message="tns:consulterReferentielProduit" name="consulterReferentielProduit">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterReferentielProduitResponse" name="consulterReferentielProduitResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultationCCL">
+      <wsdl:input message="tns:consultationCCL" name="consultationCCL">
+    </wsdl:input>
+      <wsdl:output message="tns:consultationCCLResponse" name="consultationCCLResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="creerCommande">
+      <wsdl:input message="tns:creerCommande" name="creerCommande">
+    </wsdl:input>
+      <wsdl:output message="tns:creerCommandeResponse" name="creerCommandeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielCivilite">
+      <wsdl:input message="tns:consulterReferentielCivilite" name="consulterReferentielCivilite">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterReferentielCiviliteResponse" name="consulterReferentielCiviliteResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterListeDatesNonComptable">
+      <wsdl:input message="tns:consulterListeDatesNonComptable" name="consulterListeDatesNonComptable">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterListeDatesNonComptableResponse" name="consulterListeDatesNonComptableResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterJournalDeCaisse">
+      <wsdl:input message="tns:consulterJournalDeCaisse" name="consulterJournalDeCaisse">
+    </wsdl:input>
+      <wsdl:output message="tns:consulterJournalDeCaisseResponse" name="consulterJournalDeCaisseResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:BusinessFaultException" name="BusinessFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EncaissSWSoapBinding" type="tns:EncaissSwDwp">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consulterDisponibiliteService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterDisponibiliteService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterDisponibiliteServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielFormeJuridique">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterReferentielFormeJuridique">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterReferentielFormeJuridiqueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielPays">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterReferentielPays">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterReferentielPaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielProduit">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterReferentielProduit">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterReferentielProduitResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="misAjourNumeroDossierCommande">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="misAjourNumeroDossierCommande">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="misAjourNumeroDossierCommandeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultationCCL">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultationCCL">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultationCCLResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="creerCommande">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="creerCommande">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="creerCommandeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterReferentielCivilite">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterReferentielCivilite">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterReferentielCiviliteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterJournalDeCaisse">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterJournalDeCaisse">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterJournalDeCaisseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consulterListeDatesNonComptable">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consulterListeDatesNonComptable">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consulterListeDatesNonComptableResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="BusinessFaultException">
+        <soap:fault name="BusinessFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EncaissSW">
+    <wsdl:port binding="tns:EncaissSWSoapBinding" name="EncaissSWPort">
+      <soap:address location="http://localhost:8090/EncaissSwDwp/EncaissSwDwp"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

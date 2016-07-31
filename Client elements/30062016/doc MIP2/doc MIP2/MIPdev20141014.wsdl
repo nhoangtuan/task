@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mopa2i-dev-service.ni.inpi/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Mip" targetNamespace="http://mopa2i-dev-service.ni.inpi/soap">
+	<types>
+		<xsd:schema targetNamespace="http://mopa2i-dev-service.ni.inpi/soap">
+			<xsd:complexType name="ConsultRequest">
+				<xsd:all>
+					<xsd:element name="customerAccount" type="xsd:string"/>
+					<xsd:element name="customerAccountPwd" type="xsd:string"/>
+					<xsd:element name="info" type="xsd:string" nillable="true"/>
+					<xsd:element name="appliClient" type="xsd:string"/>
+					<xsd:element name="login" type="xsd:string"/>
+					<xsd:element name="password" type="xsd:string"/>
+					<xsd:element name="dateCall" type="xsd:string"/>
+					<xsd:element name="idExt" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="Address">
+				<xsd:all>
+					<xsd:element name="streetOne" type="xsd:string"/>
+					<xsd:element name="streetTwo" type="xsd:string"/>
+					<xsd:element name="city" type="xsd:string"/>
+					<xsd:element name="zipCode" type="xsd:string"/>
+					<xsd:element name="countryCode" type="xsd:string"/>
+					<xsd:element name="mention" type="xsd:string"/>
+					<xsd:element name="department" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="Person">
+				<xsd:all>
+					<xsd:element name="address" type="tns:Address"/>
+					<xsd:element name="mailingAddress" type="tns:Address" nillable="true"/>
+					<xsd:element name="type" type="xsd:string"/>
+					<xsd:element name="quality" type="xsd:string"/>
+					<xsd:element name="lastname" type="xsd:string"/>
+					<xsd:element name="firstname" type="xsd:string"/>
+					<xsd:element name="companyName" type="xsd:string"/>
+					<xsd:element name="legalForm" type="xsd:string"/>
+					<xsd:element name="email" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ConsultResponse">
+				<xsd:all>
+					<xsd:element name="customerAccount" type="xsd:string" nillable="true"/>
+					<xsd:element name="customerBalance" type="xsd:float" nillable="true"/>
+					<xsd:element name="holder" type="tns:Person" nillable="true"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="code" type="xsd:int"/>
+					<xsd:element name="detail" type="xsd:string" nillable="true"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="PaymentCbRequest">
+				<xsd:all>
+					<xsd:element name="typeCard" type="xsd:string"/>
+					<xsd:element name="dueTotal" type="xsd:string"/>
+					<xsd:element name="holderMail" type="xsd:string"/>
+					<xsd:element name="timeDisplay" type="xsd:int" nillable="true"/>
+					<xsd:element name="is3ds" type="xsd:boolean" nillable="true"/>
+					<xsd:element name="langDisplay" type="xsd:string" nillable="true"/>
+					<xsd:element name="urlPayOk" type="xsd:string"/>
+					<xsd:element name="urlPayKo" type="xsd:string"/>
+					<xsd:element name="urlCancel" type="xsd:string"/>
+					<xsd:element name="info" type="xsd:string" nillable="true"/>
+					<xsd:element name="appliClient" type="xsd:string"/>
+					<xsd:element name="login" type="xsd:string"/>
+					<xsd:element name="password" type="xsd:string"/>
+					<xsd:element name="dateCall" type="xsd:string"/>
+					<xsd:element name="idExt" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="PaymentCbResponse">
+				<xsd:all>
+					<xsd:element name="payboxAccess" type="xsd:string" nillable="true"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="code" type="xsd:int"/>
+					<xsd:element name="detail" type="xsd:string" nillable="true"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="CheckPaymentRequest">
+				<xsd:all>
+					<xsd:element name="dueTotal" type="xsd:string"/>
+					<xsd:element name="appliClient" type="xsd:string"/>
+					<xsd:element name="login" type="xsd:string"/>
+					<xsd:element name="password" type="xsd:string"/>
+					<xsd:element name="dateCall" type="xsd:string"/>
+					<xsd:element name="idExt" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="CheckPaymentResponse">
+				<xsd:all>
+					<xsd:element name="paymentStatus" type="xsd:boolean" nillable="true"/>
+					<xsd:element name="labelPaymentStatus" type="xsd:string" nillable="true"/>
+					<xsd:element name="paymentMode" type="xsd:string" nillable="true"/>
+					<xsd:element name="authorizationNumber" type="xsd:string" nillable="true"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="code" type="xsd:int"/>
+					<xsd:element name="detail" type="xsd:string" nillable="true"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfProduct">
+				<xsd:complexContent>
+					<xsd:restriction base="soap-enc:Array">
+						<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Product[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name="Product">
+				<xsd:all>
+					<xsd:element name="code" type="xsd:string"/>
+					<xsd:element name="quantity" type="xsd:int"/>
+					<xsd:element name="amount" type="xsd:int"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="Payment">
+				<xsd:all>
+					<xsd:element name="mode" type="xsd:string"/>
+					<xsd:element name="shipping" type="xsd:int"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="amount" type="xsd:int"/>
+					<xsd:element name="transactionRef" type="xsd:string"/>
+					<xsd:element name="customerAccount" type="xsd:string"/>
+					<xsd:element name="customerAccountPwd" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="OrderRequest">
+				<xsd:all>
+					<xsd:element name="products" type="tns:ArrayOfProduct"/>
+					<xsd:element name="payment" type="tns:Payment"/>
+					<xsd:element name="applicant" type="tns:Person"/>
+					<xsd:element name="attorney" type="tns:Person"/>
+					<xsd:element name="addressee" type="tns:Person"/>
+					<xsd:element name="orderDate" type="xsd:string"/>
+					<xsd:element name="orderRef" type="xsd:string"/>
+					<xsd:element name="reportRef" type="xsd:string"/>
+					<xsd:element name="isComplete" type="xsd:boolean"/>
+					<xsd:element name="appliClient" type="xsd:string"/>
+					<xsd:element name="login" type="xsd:string"/>
+					<xsd:element name="password" type="xsd:string"/>
+					<xsd:element name="dateCall" type="xsd:string"/>
+					<xsd:element name="idExt" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="OrderResponse">
+				<xsd:all>
+					<xsd:element name="orderNum" type="xsd:int" nillable="true"/>
+					<xsd:element name="totalAmount" type="xsd:float" nillable="true"/>
+					<xsd:element name="createDate" type="xsd:string" nillable="true"/>
+					<xsd:element name="encaissDate" type="xsd:string" nillable="true"/>
+					<xsd:element name="isPaidCb" type="xsd:string"/>
+					<xsd:element name="paymentCbDate" type="xsd:string" nillable="true"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="code" type="xsd:int"/>
+					<xsd:element name="detail" type="xsd:string" nillable="true"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="UpdateOrderRequest">
+				<xsd:all>
+					<xsd:element name="orderNum" type="xsd:int" nillable="true"/>
+					<xsd:element name="reportNum" type="xsd:string"/>
+					<xsd:element name="appliClient" type="xsd:string"/>
+					<xsd:element name="login" type="xsd:string"/>
+					<xsd:element name="password" type="xsd:string"/>
+					<xsd:element name="dateCall" type="xsd:string"/>
+					<xsd:element name="idExt" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="UpdateOrderResponse">
+				<xsd:all>
+					<xsd:element name="orderNum" type="xsd:int" nillable="true"/>
+					<xsd:element name="totalAmount" type="xsd:float" nillable="true"/>
+					<xsd:element name="createDate" type="xsd:string" nillable="true"/>
+					<xsd:element name="encaissDate" type="xsd:string" nillable="true"/>
+					<xsd:element name="date" type="xsd:string"/>
+					<xsd:element name="code" type="xsd:int"/>
+					<xsd:element name="detail" type="xsd:string" nillable="true"/>
+				</xsd:all>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+	<portType name="MipPort">
+		<operation name="consult">
+			<documentation>Consultation du solde d'un compte client</documentation>
+			<input message="tns:consultIn"/>
+			<output message="tns:consultOut"/>
+		</operation>
+		<operation name="paymentCb">
+			<documentation>Paiement CB</documentation>
+			<input message="tns:paymentCbIn"/>
+			<output message="tns:paymentCbOut"/>
+		</operation>
+		<operation name="checkPayment">
+			<documentation>V&#xE9;rification de l'&#xE9;tat d'un paiement</documentation>
+			<input message="tns:checkPaymentIn"/>
+			<output message="tns:checkPaymentOut"/>
+		</operation>
+		<operation name="createOrder">
+			<documentation>Cr&#xE9;ation et/ou paiement d'une commande</documentation>
+			<input message="tns:createOrderIn"/>
+			<output message="tns:createOrderOut"/>
+		</operation>
+		<operation name="updateOrder">
+			<documentation>Mise &#xE0; jour d'une commande</documentation>
+			<input message="tns:updateOrderIn"/>
+			<output message="tns:updateOrderOut"/>
+		</operation>
+	</portType>
+	<binding name="MipBinding" type="tns:MipPort">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="consult">
+			<soap:operation soapAction="http://mopa2i-dev-service.ni.inpi/soap#consult"/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</output>
+		</operation>
+		<operation name="paymentCb">
+			<soap:operation soapAction="http://mopa2i-dev-service.ni.inpi/soap#paymentCb"/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</output>
+		</operation>
+		<operation name="checkPayment">
+			<soap:operation soapAction="http://mopa2i-dev-service.ni.inpi/soap#checkPayment"/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</output>
+		</operation>
+		<operation name="createOrder">
+			<soap:operation soapAction="http://mopa2i-dev-service.ni.inpi/soap#createOrder"/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</output>
+		</operation>
+		<operation name="updateOrder">
+			<soap:operation soapAction="http://mopa2i-dev-service.ni.inpi/soap#updateOrder"/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://mopa2i-dev-service.ni.inpi/soap"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="MipService">
+		<port name="MipPort" binding="tns:MipBinding">
+			<soap:address location="http://mopa2i-dev-service.ni.inpi/soap"/>
+		</port>
+	</service>
+	<message name="consultIn">
+		<part name="request" type="tns:ConsultRequest"/>
+	</message>
+	<message name="consultOut">
+		<part name="return" type="tns:ConsultResponse"/>
+	</message>
+	<message name="paymentCbIn">
+		<part name="request" type="tns:PaymentCbRequest"/>
+	</message>
+	<message name="paymentCbOut">
+		<part name="return" type="tns:PaymentCbResponse"/>
+	</message>
+	<message name="checkPaymentIn">
+		<part name="request" type="tns:CheckPaymentRequest"/>
+	</message>
+	<message name="checkPaymentOut">
+		<part name="return" type="tns:CheckPaymentResponse"/>
+	</message>
+	<message name="createOrderIn">
+		<part name="request" type="tns:OrderRequest"/>
+	</message>
+	<message name="createOrderOut">
+		<part name="return" type="tns:OrderResponse"/>
+	</message>
+	<message name="updateOrderIn">
+		<part name="request" type="tns:UpdateOrderRequest"/>
+	</message>
+	<message name="updateOrderOut">
+		<part name="return" type="tns:UpdateOrderResponse"/>
+	</message>
+</definitions>

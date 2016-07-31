@@ -1,0 +1,234 @@
+
+
+
+#--------------- Messages de verification du format de EnteteMessage ----------------------------
+ERG-WS-DT-ENTMSG-FMT01=La taille du champ loginAppClient doit être comprise entre 1 et 20 caractères
+ERG-WS-DT-LCMD-QTTE=La quantité doit être supérieure à 0 pour tout produit.
+ERG-WS-DT-ENTMSG-FMT02=La taille du champ passwdAppClient doit être comprise entre 1 et 8 caractères
+ERG-WS-DT-ENTMSG-FMT03=La taille du champ appOrigin doit être comprise entre 1 et 20 caractères
+
+
+#--------------- Message du service d'authentification des utilisateurs ----------------------------
+ERG-WS-OP-AUTH-01=Le code utilisateur n''existe pas en base
+ERG-WS-OP-AUTH-02=Le code utilisateur n''est plus valide à ce jour
+ERG-WS-OP-AUTH-03=Le code utilisateur n''est pas encore actif
+ERG-WS-OP-AUTH-04=Erreur lors de l''acces au serveur LDAP
+
+
+#--------------- Message du service de verification de l'appOrigin ----------------------------
+ERG-WS-OP-APPORI-01=Le code appOrigin doit être renseigné
+ERG-WS-OP-APPORI-02=Le code appOrigin ne correspond pas en base.
+
+
+#--------------- Message du service d'envoi des mails (jars Encaissements) ----------------------------
+ERT-WS-MAIL-01=Le module spring SendMailManager n''a pas été initialisé.
+ERT-WS-MAIL-02=Erreur Technique \: L''envoi de mail a echou\u00E9. L''historique (LogMail) est mis a jour.
+ERT-WS-MAIL-03=Erreur Technique \: L''envoi de mail a echou\u00E9. L''historique (LogMail) n'est pas mis a jour.
+ERT-WS-MAIL-04=Erreur Technique \: L''envoi de mail a echou\u00E9. Les ressources sont indisponibles
+ERT-WS-MAIL-05=Erreur Technique \: L''envoi de mail a echou\u00E9. Les ressources sont indisponibles
+
+
+
+#--------------- Message du service CONSULTER DISPONIBILITE SERVICE ----------------------------
+# Les messages d'erreur 01 à 08 ne sont présents dans ce fichier qu'à titre indicatif
+# Pour des raisons de robustesse : le service consulterDisponibiliteService n'utilise pas 
+# le messageResourceBundle dans sa première partie (ce n'est qu'une fois son bon fonctinnement vérifié qu'il l'utilise)
+ERT-WS-OP-INIT-01=NsLogger et NatOrb n''ont pas été initialisés
+ERT-WS-OP-INIT-02=NatOrb n''a pas été initialisé
+ERT-WS-OP-INIT-03=NsLogger n''a pas été initialisé
+ERT-WS-OP-INIT-04=Problème de connexion avec la base de données
+ERT-WS-OP-INIT-05=Le gestionnaire d''entete n''est pas initialisé
+ERT-WS-OP-INIT-06=La connexion au LDap est incorrecte
+ERT-WS-OP-INIT-07=Le gestionnaire de message d''erreur n''est pas initialisé
+ERT-WS-OP-INIT-08=Le fichier contenant les messages d''erreur n''est pas disponible.
+
+# A partir des messages d'erreurs suivant : ils sont retrouvé dans le fichier
+ERT-WS-OP-INIT-09=Le gestionnaire d''envoi des mails n''est pas initialisé
+ERT-WS-OP-INIT-10=La connexion au service mail est incorrecte
+ERT-WS-OP-INIT-11=La connexion au service de gestion des logs de mail est incorrecte
+ERT-WS-OP-INIT-12=Le service NsConfig n''est pas opérationnel
+ERT-WS-OP-INIT-13=Le logo INPI nécessaire pour les duplicatas n''est pas disponible
+
+
+
+
+#--------------- Message du service de recuperation de la liste des DATES NON COMPTABLES ----------------------------
+ERG-WS-OP-JFER-01=La liste des date non comptables n''a pu être récuperée. Problème de base de données 
+
+#--------------- Message du service de recuperation de la liste des FORMES JURIDIQUES  ----------------------------
+ERG-WS-OP-FJUR-01=La liste des formes juridiques n''a pu être récuperée. Problème de base de données 
+
+#--------------- Message du service de recuperation de la liste des CIVILITES  ----------------------------
+ERG-WS-OP-CIVT-01=La liste des civilites n''a pu être récuperée. Problème de base de données 
+
+#--------------- Message du service de recuperation de la liste des PRODUITS  ----------------------------
+ERT-WS-LSTPDT-01=La liste des produit n''a pu être récuperée. Problème de base de données 
+ERT-WS-LSTPDT-02=La liste des produits valides necessite d''avoir une date comptable. 
+ERT-WS-LSTPDT-03=Il n''y a pas de code(s) recette(s) actif(s) à la date comptable fournie.
+ERT-WS-LSTPDT-04=Le code domaine n'existe pas.
+ERT-WS-LSTPDT-05=Le code sous-domaine n'existe pas.
+
+#--------------- Message du service de recuperation/insertion de PERSONNE/ADRESSE  ----------------------------
+ERT-WS-PERS-01=L''insertion de la personne en base de données a echoué. Problème de base de données 
+
+
+#--------------- Message du service de recuperation de la liste des OPERATIONS  ----------------------------
+ERG-WS-OP-OPER-01=La liste des opérations n''a pu être récuperée. 
+ERT-WS-OP-OPER-01=Probleme de base de données
+
+#--------------- Message du service de recuperation de la liste des PAYS  ----------------------------
+ERG-WS-OP-PAYS-01=La liste des pays n''a pu être récuperée. 
+
+
+#--------------- Messages de compte Client ----------------------------------
+ERG-WS-CCL-01=Le compte client n''existe pas.
+ERG-WS-CCL-02=Le compte client n''est pas actif pour la date du jour
+ERG-WS-CCL-03=Le mot de passe compte client est incorrect.
+ERG-WS-CCL-04=Le compte client n''est pas lié à un titulaire.
+ERG-WS-CCL-05=Le compte client et le mot de passe ne doivent pas être vide.
+ERT-WS-CCL-01=Erreur Technique : Les personnes et adresse  n''ont pas d''instance via Spring 
+
+
+#--------------- Message du service de MISE A JOUR DU NUMERO NATIONAL  ----------------------------
+ERT-WS-MAJNONAT-01=La mise à jour du numéro national (Recepisse) a echoué. 
+ERT-WS-MAJNONAT-02=La mise à jour du numéro national (RB1) a echoué.
+ERT-WS-MAJNONAT-03=La log mail de la commande n''a pas été trouvée -  Le reçu n''est pas envoyé.
+ERG-WS-MAJNONAT-04=Le numéro de commande ne correspond pas. 
+ERG-WS-MAJNONAT-05=La pré commande n''a pas été trouvée. 
+
+#--------------- Message du service creerCommande ----------------------------
+ERG-WS-OP-CMD-01=La caisse  est fermée pour cet utilisateur
+ERG-WS-OP-CMD-02=Plusieurs ligneCommandes contiennent des codes recettes identiques pour un même flux
+ERT-WS-OP-CMD-03=Erreur technique grave de type NullPointerException
+ERG-WS-OP-CMD-04=La date de validité de l''utilisateur a expiré
+#WRG-WS-OP-CMD-05=Une commande avec cette référence et cette date existe déja
+#WRG-WS-OP-CMD-06=Une commande avec ce numéro de dossier et cette date existe déja.
+ERG-WS-OP-CMD-07=La référence du Dossier est obligatoire pour un code recette du groupe produit de type B1.
+ERG-WS-OP-CMD-08=La référence du Dossier doit étre nulle pour un code recette du groupe produit différent du type B1 ou C1.
+ERG-WS-OP-CMD-09=La Personne demandeur n''a pas été trouvée et/ou n''a pas été créée.
+ERG-WS-OP-CMD-10=La Personne Mandataire n''a pas été trouvée et/ou n''a pas été créée.
+ERT-WS-OP-CMD-11=Le numéro de commande ne peut être 0
+ERT-WS-OP-CMD-12=Le numéro de recepisse ne doit pas être 0
+ERG-WS-OP-CCL-13=Le compte client demandé n''a pas été retrouvé et/ou l''authentification a échoué.
+ERG-WS-OP-CCL-14=Le solde du compte client n''est pas suffisant pour ce paiement.
+ERG-WS-OP-CMD-15=Le tarif d''un des produits de la commande ne correspond pas à celui en base.
+ERG-WS-OP-CMD-16=Le calcul du montant total de la commande ne correspond pas au montant payé.
+ERT-WS-OP-CMD-17=Erreur technique grave de la création du/des  pré-commande(s)
+ERT-WS-OP-CMD-18=Erreur technique grave de la création et de l''encaissement de la commande.
+ERT-WS-OP-CMD-19=Erreur technique lors de la fermeture du statement de la procedure stockee com_precom_enregistrer_bout (fermeture)
+ERT-WS-OP-CMD-20=Erreur technique grave lors de la fermeture du statement de la procedure stockee enc_commande_encaisser (fermeture)
+ERG-WS-OP-CMD-21=La commande doit avoir une référence de commande.
+ERG-WS-OP-CMD-22=Le code recette {0} n''existe pas encore en base ou celui-ci est nulle.
+ERG-WS-OP-CMD-23=Le type de paiement est nulle et/ou n''est pas reconnu. Il doit étre CB ou CCL.
+ERG-WS-OP-CMD-24=Le code recette {0} n''est pas actif à la date comptable fournie.
+ERG-WS-OP-CMD-25=La référence du Dossier est obligatoire pour un code recette du groupe produit de type C1.
+ERG-WS-OP-COM-26=Le recepisse n''a pu être crée par la procedure. 
+ERG-WS-OP-CMD-27=Le numero national ou d''enregistrement est obligatoire pour un code recette du groupe produit {0}
+ERG-WS-OP-CMD-28=Le noeud [refDossier] ne doit pas être renseigné si [informationDossier] n''est pas vide .
+ERG-WS-OP-CMD-29=Le noeud [informationDossier] ne doit pas être renseigné pour le groupe produit {0} .
+ERG-WS-OP-CMD-30=Une commande avec ce numéro de dossier et cette ref_cmde existe déja. Commande n° {0}
+ERG-WS-OP-CMD-31=Un code recette n''existe pas ou n''a pas de groupe produit.
+ERG-WS-OP-CMD-32=Le noeud dans [informationDossier] ne correspond pas au groupe produit du/des codes recettes 
+
+#-- messages d'erreurs pour les informations de groupes produits
+#-- B3
+ERG-WS-GP-CMD-B3-01=La désignation de marque ne doit pas dépasser 255 caractères
+ERG-WS-GP-CMD-B3-02=Le numero national Opposition ne doit pas dépasser 20 caractères
+ERG-WS-GP-CMD-B3-03=La désignation de marque opposée ne doit pas dépasser 255 caractères
+ERG-WS-GP-CMD-B3-04=La reference client ne doit pas dépasser 50 caratères.
+#-- C1
+ERG-WS-GP-CMD-C1-01=Le nom du déposant ne doit pas dépasser 50 caractères
+ERG-WS-GP-CMD-C1-02=La référence client ne doit pas dépasser 50 caractères
+ERG-WS-GP-CMD-C1-03=Le numero d''ordre ne doit pas dépasser 9 caractères
+ERG-WS-GP-CMD-C1-04=Le lieu du dépot ne doit pas dépasser 50 caractères
+ERG-WS-GP-CMD-C1-05=Le libellé descriptif des numeros d''enveloppes ne doit pas dépasser 255 caractères
+#-- D1
+ERG-WS-GP-CMD-D1-01=Le numero de demande d''inscription ne doit pas dépasser 50 caractères
+ERG-WS-GP-CMD-D1-02=La référence client ne doit pas dépasser 50 caractères
+#-- F1
+ERG-WS-GP-CMD-F1-01=Le numero de liste ne doit pas dépasser 25 caractères
+ERG-WS-GP-CMD-F1-02=La référence client ne doit pas dépasser 50 caractères
+#-- IG
+ERG-WS-GP-CMD-IG-01=L''indication géographique ne doit pas dépasser 255 caractères
+ERG-WD-GP-CMD-IG-02=Le numero national doit être construit selon la norme en vigueur : IG AA-NNN tel que, AA correspondant au millésime du dépôt et NNN le numéro chronologique de la demande au sein du millésime (NNN se réinitialisant chaque année)
+ERG-WS-GP-CMD-IG-03=Le libellé descriptif de l''organisme de de défense ne doit pas dépasser 255 caractères.
+ERG-WS-GP-CMD-IG-04=Tous les champs sont obligatoire pour les produit de groupe IG.
+
+#--A1
+ERG-WS-GP-CMD-A1-01=L''indicateur ne doit pas exceder 1 caractère.
+ERG-WS-GP-CMD-A1-02=L''indicateur doit être renseigné à O ou N
+ERG-WS-GP-CMD-A1-03=On ne peut avoir qu''un seul indicateur
+ERG-WS-GP-CMD-A1-04=Le numero national CertificatUtilite (A1) ne doit pas dépasser 9 caractères
+ERG-WS-GP-CMD-A1-05=Le nom du demandeur CertificatUtilite (A1) ne doit pas dépasser 50 caractères
+ERG-WS-GP-CMD-A1-06=La reference client CertificatUtilite (A1) ne doit pas dépasser 50 caractères
+
+#-- A7
+ERG-WS-GP-CMD-A7-01=Le numero national ne doit pas exceder 10 caractères.
+ERG-WS-GP-CMD-A7-02=Le nom du demandeur ne doit pas exceder 50 caractères.
+ERG-WS-GP-CMD-A7-03=La reference client ne doit pas exceder 50 caractères.
+
+#--Log
+ERT-WS-OP-LOG-01=Erreur Technique \: logSwf > La sauvegarde en base de l''historique du traitement a \u00E9chou\u00E9.
+ERT-WS-OP-LOG-02=Erreur Technique : LogSwf > Le numero de PreCommande n''est pas accessible (Null)
+ERT-WS-OP-LOG-03=Erreur Technique : LogSwf > Le numero de Commande n''est pas accessible (Null)
+ERT-WS-OP-LOG-04=Erreur Technique \: LogSwf > La transcription en XML de la commande a echou\u00E9 
+
+
+#--------------- Messages de coherence des donnees entree ----------------------------------
+ERG-WS-INFO-PCO-01=Il n''y a pas de pre-Commande correspondant à la commande n°:{0}
+ERG-WS-INFO-PAI-01=Il n''y a pas de Paiement correspondant à la commande n°:{0}
+ERG-WS-INFO-PRS-01a=Le code pays doit etre renseigné
+ERG-WS-INFO-PRS-01b=Le code pays ne correspond pas
+ERG-WS-INFO-PRS-02=Le code civilite ne correspond pas
+ERG-WS-INFO-PRS-03=Le code forme juridique ne correspond pas 
+ERG-WS-INFO-PRS-04=Le code type de personne ne doit pas être vide
+ERG-WS-INFO-PRS-05=Le code type de personne doit être renseigné a M (pers Morale) ou P (pers Physique)
+ERG-WS-INFO-PRS-06=La raison sociale doit etre obligatoirement renseigné pour une personne morale
+ERG-WS-INFO-PRS-07=Le nom  doit etre obligatoirement renseigné pour une personne physique
+ERG-WS-INFO-PRS-08=Le code postal ne doit pas être vide pour la France.
+ERG-WS-INFO-PRS-09a=Le code postal est numerique en France.
+ERG-WS-INFO-PRS-09b=Le code postal ne fait pas moins de 5 caractères en France.
+ERG-WS-INFO-PRS-10=La voie (numero et/ou rue) ne doit pas être vide.
+
+
+#--------------- Messages de verification du format de Commande ----------------------------
+ERG-WS-DT-CMD-FMT01=refCmd doit avoir une taille inférieure ou égale à 20 caractères
+ERG-WS-DT-CMD-FMT02=refDossier doit avoir une taille inférieure ou égale à 11 caractères
+
+#--------------- Messages de verification du format des Adresses ----------------------------
+ERG-WS-DT-ADR-FMTSV={0} \: Le service doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 38 caract\u00E8res
+ERG-WS-DT-ADR-FMTCA={0} \: Le compl\u00E9ment doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 38 caract\u00E8res
+ERG-WS-DT-ADR-FMTRU={0} \: Le nomVoie doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 38 caract\u00E8res
+ERG-WS-DT-ADR-FMTMB={0} \: Le mentionDistribution doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 38 caract\u00E8res
+ERG-WS-DT-ADR-FMTCP={0} \: Le codePostal doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 5 caract\u00E8res
+ERG-WS-DT-ADR-FMTVI={0} \: La ville doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 32 caract\u00E8res
+ERG-WS-DT-ADR-FMTPA={0} : Le codePays doit avoir une taille de 2 caractères
+
+#--------------- Messages de verification du format des Personnes ----------------------------
+ERG-WS-DT-PRS-FMTTI={0} \: Le titre doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 5 caract\u00E8res
+ERG-WS-DT-PRS-FMTNM={0} \: Le nom doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 50 caract\u00E8res
+ERG-WS-DT-PRS-FMTPN={0} \: Le pr\u00E9nom doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 30 caract\u00E8res
+ERG-WS-DT-PRS-FMTFJ={0} \: La formeJuridique doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 5 caract\u00E8res
+ERG-WS-DT-PRS-FMTRS={0} \: La raisonSociale doit avoir une taille inf\u00E9rieure ou \u00E9gale \u00E0 50 caract\u00E8res
+
+
+#--------------- Messages d'acces a la base de donnees ----------------------------
+ERT-WS-BDD-01=La base de données a renvoyé une erreur ou n''est pas accessible
+
+
+
+
+#--------------- Messages de la structure Reponse ----------------------------
+RG-SW-REPONSE-CREECMD-01=La création de la COMMANDE est terminée
+RG-SW-REPONSE-CONSCCL-01=La récupération du COMPTE CLIENT est terminée
+RG-SW-REPONSE-MAJNONAT-01=La mise à jour du numéro national est terminée
+RG-SW-REPONSE-LSTJFER-01=La récupération de la liste des DATES NON COMPTABLE est terminée
+RG-SW-REPONSE-LSTCIV-01=La récupération de la liste des CIVILITES est terminée
+RG-SW-REPONSE-LSTPRDT-01=La récupération de la liste des PRODUITS est terminée
+RG-SW-REPONSE-LSTPRDT-02=Il n''y a pas de produits disponibles pour ces critères. La liste est vide.
+RG-SW-REPONSE-LSTPAYS-01=La récupération de la liste des PAYS est terminee
+RG-SW-REPONSE-LSTFMJ-01=La récupération de la liste des FORMES JURIDIQUES est terminée
+RG-SW-REPONSE-LSTOPC-01=La récupération de la liste des OPERATIONS COMPTABLES est terminée
+RG-SW-REPONSE-LSTOPC-02=Le mode de reglement ne correspond pas. La liste est vide.
+RG-SW-REPONSE-DISPSER-01=La caisse est ouverte. Le service est fonctionnel
+RG-SW-REPONSE-DISPSER-02=La caisse n''est pas ouverte. Le service n''est pas fonctionnel
